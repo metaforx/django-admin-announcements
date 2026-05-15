@@ -43,6 +43,9 @@ test = [
     "pytest-django>=4.5",
     "pytest-env>=1.2.0,<2",
 ]
+ui = [
+    "pytest-playwright>=0.4",
+]
 dev = ["ruff>=0.4"]
 
 [tool.uv]
@@ -64,7 +67,11 @@ addopts = """\
     --strict-config
     --strict-markers
     --ds=testapp.settings
+    --ignore=tests/test_ui_notifications.py
     """
+markers = [
+    "ui: Playwright UI tests (require pytest-playwright and a browser)",
+]
 testpaths = ["tests"]
 pythonpath = [".", "tests/server"]
 django_find_project = false
