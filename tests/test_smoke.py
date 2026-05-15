@@ -17,31 +17,31 @@ class TestAdminAnnouncementModel:
 
     def test_create_minimal(self):
         announcement = AdminAnnouncement.objects.create(
-            version="1.0.0",
             title="Welcome",
             summary="Initial release",
             body="The system is now live.",
-            starts_at=timezone.now(),
         )
         assert announcement.pk is not None
         assert announcement.is_active is True
         assert announcement.expires_at is None
+        assert announcement.starts_at is not None
 
     def test_str_representation(self):
-        announcement = AdminAnnouncement(version="2.0.0", title="Update")
-        assert str(announcement) == "2.0.0 — Update"
+        with_version = AdminAnnouncement(version="2.0.0", title="Update")
+        assert str(with_version) == "2.0.0 — Update"
+
+        without_version = AdminAnnouncement(title="No version")
+        assert str(without_version) == "No version"
 
     def test_ordering_is_most_recent_first(self):
         now = timezone.now()
         older = AdminAnnouncement.objects.create(
-            version="1.0.0",
             title="Old",
             summary="",
             body="",
             starts_at=now - timedelta(days=2),
         )
         newer = AdminAnnouncement.objects.create(
-            version="1.1.0",
             title="New",
             summary="",
             body="",
@@ -56,11 +56,9 @@ class TestAdminAnnouncementGroups:
 
     def _make_announcement(self):
         return AdminAnnouncement.objects.create(
-            version="1.0.0",
             title="t",
             summary="",
             body="",
-            starts_at=timezone.now(),
         )
 
     def test_no_groups_assigned(self):
