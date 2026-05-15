@@ -1,0 +1,66 @@
+# German translations for django-admin-announcements.
+# Copyright (C) 2026 Marc Widmer
+# This file is distributed under the same license as the django-admin-announcements package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: django-admin-announcements\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-15 04:05-0500\n"
+"PO-Revision-Date: 2026-05-15\n"
+"Last-Translator: Marc Widmer <marc@pbi.io>\n"
+"Language-Team: German <de@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: \n"
+
+#: admin_announcements/models.py:10
+msgid "version"
+msgstr "Version"
+
+#: admin_announcements/models.py:11
+msgid "Optional release version reference (e.g. 2.0.0)"
+msgstr "Optionale Referenz auf eine Release-Version (z. B. 2.0.0)"
+
+#: admin_announcements/models.py:13
+msgid "title"
+msgstr "Titel"
+
+#: admin_announcements/models.py:14
+msgid "summary"
+msgstr "Zusammenfassung"
+
+#: admin_announcements/models.py:15
+msgid "body"
+msgstr "Inhalt"
+
+#: admin_announcements/models.py:16
+msgid "starts at"
+msgstr "Beginnt am"
+
+#: admin_announcements/models.py:18
+msgid "expires at"
+msgstr "Endet am"
+
+#: admin_announcements/models.py:20
+msgid "active"
+msgstr "Aktiv"
+
+#: admin_announcements/models.py:26
+msgid "groups"
+msgstr "Gruppen"
+
+#: admin_announcements/models.py:27
+msgid "Restrict to users in these groups. Leave empty to show to all users."
+msgstr "Auf Benutzer in diesen Gruppen einschränken. Leer lassen, um allen anzuzeigen."
+
+#: admin_announcements/models.py:31
+msgid "admin announcement"
+msgstr "Admin-Ankündigung"
+
+#: admin_announcements/models.py:32
+msgid "admin announcements"
+msgstr "Admin-Ankündigungen"
