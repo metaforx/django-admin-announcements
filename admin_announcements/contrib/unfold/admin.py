@@ -10,8 +10,4 @@ if AdminAnnouncement in admin.site._registry:
 
 @admin.register(AdminAnnouncement)
 class AdminAnnouncementAdmin(ModelAdmin):
-    list_display = ("version", "title", "starts_at", "expires_at", "is_active")
-    list_filter = ("is_active", "groups")
-    search_fields = ("version", "title", "summary", "body")
-    ordering = ("-starts_at",)
-    filter_horizontal = ("groups",)
+    pass
