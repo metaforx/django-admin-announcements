@@ -1,9 +1,10 @@
+from django.apps import apps
 from django.contrib import admin
 from django.contrib.auth.models import Group, User
 
-try:
+if apps.is_installed("unfold"):
     from unfold.admin import ModelAdmin as AdminBase
-except ImportError:
+else:
     AdminBase = admin.ModelAdmin
 
 

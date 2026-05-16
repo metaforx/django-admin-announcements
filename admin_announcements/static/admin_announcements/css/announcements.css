@@ -1,0 +1,83 @@
+#announcements-banner,
+#announcements-banner *,
+#announcements-banner *::before,
+#announcements-banner *::after {
+    box-sizing: border-box;
+}
+
+#announcements-banner {
+    width: 100%;
+    background: var(--accent);
+    color: var(--body-fg);
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    row-gap: 10px;
+}
+
+.announcement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    align-self: stretch;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+.announcement__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+.announcement__message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+
+.announcement__actions {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+a.announcement__action,
+.button.announcement__action {
+    height: 2.1875rem;
+    line-height: 0.9375rem;
+    vertical-align: middle;
+    font-family: var(--font-family-primary);
+    font-weight: normal;
+    font-size: 0.8125rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-transform: uppercase;
+}
+
+.button.announcement__dismiss {
+    background: var(--button-bg);
+}
+
+.announcement__dismiss:hover {
+    opacity: 0.5;
+}

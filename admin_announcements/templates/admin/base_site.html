@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% load admin_announcements i18n static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'admin_announcements/css/announcements.css' %}">
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<script src="{% static 'admin_announcements/js/announcements.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+{% admin_announcements_banner %}
+{{ block.super }}
+{% endblock %}

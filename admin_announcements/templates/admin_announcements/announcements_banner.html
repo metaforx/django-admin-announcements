@@ -1,0 +1,28 @@
+{% load static i18n %}
+
+{% if active_announcements %}
+    <div id="announcements-banner" class="announcement-banner-list">
+        {% for announcement in active_announcements %}
+            <div class="announcement" data-announcement-id="{{ announcement.pk }}">
+                <svg class="announcement__icon" aria-hidden="true">
+                    <use href="{% static 'admin_announcements/img/icons.svg' %}#icon-announcement-campaign"></use>
+                </svg>
+                <div class="announcement__message">
+                    <strong class="announcement__title">
+                        {% if announcement.version %}{{ announcement.version }}: {% endif %}
+                        {{ announcement.title }}
+                    </strong>
+                    <span> | </span>
+                    <span class="announcement__date">{{ announcement.starts_at|date:"F d, Y" }}</span>
+                </div>
+                <div class="announcement__actions">
+                    <a href="{% url 'admin_announcements:detail' announcement.pk %}"
+                       class="button default announcement__action ">{% translate "Read more" %}</a>
+                    <button type="button" class="button default announcement__action announcement__dismiss "
+                            data-announcement-dismiss aria-label="{% translate 'Close' %}">&times;
+                    </button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

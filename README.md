@@ -1,6 +1,6 @@
 # django-admin-announcements
 
-Admin announcements and notifications for Django, with optional [django-unfold](https://github.com/unfoldadmin/django-unfold) layout integration.
+Admin announcements for Django, with optional [django-unfold](https://github.com/unfoldadmin/django-unfold) layout integration.
 
 > **Status:** Draft / early scaffold. Models are not stable.
 
