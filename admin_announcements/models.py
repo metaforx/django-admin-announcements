@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from .managers import AdminAnnouncementQuerySet
+
 
 class AdminAnnouncement(models.Model):
     version = models.CharField(
@@ -11,7 +13,7 @@ class AdminAnnouncement(models.Model):
         help_text=_("Optional release version reference (e.g. 2.0.0)"),
     )
     title = models.CharField(max_length=200, verbose_name=_("title"))
-    summary = models.TextField(verbose_name=_("summary"))
+    summary = models.CharField(max_length=200, verbose_name=_("summary"))
     body = models.TextField(verbose_name=_("body"))
     starts_at = models.DateTimeField(default=timezone.now, verbose_name=_("starts at"))
     expires_at = models.DateTimeField(
@@ -26,6 +28,8 @@ class AdminAnnouncement(models.Model):
         verbose_name=_("groups"),
         help_text=_("Restrict to users in these groups. Leave empty to show to all users."),
     )
+
+    objects = AdminAnnouncementQuerySet.as_manager()
 
     class Meta:
         verbose_name = _("admin announcement")

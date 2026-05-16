@@ -1,6 +1,6 @@
 [project]
 name = "django-admin-announcements"
-description = "Admin announcements and notifications for Django (with optional django-unfold integration)"
+description = "Admin announcements for Django (with optional django-unfold integration)"
 authors = [{ name = "Marc Widmer", email = "marc@pbi.io" }]
 requires-python = ">=3.10"
 readme = "README.md"
@@ -8,7 +8,6 @@ license = "MIT"
 keywords = [
     "django",
     "admin",
-    "notifications",
     "announcements",
     "unfold",
 ]
@@ -27,11 +26,18 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
-dependencies = ["django>=5.0"]
+dependencies = [
+    "django>=5.0",
+]
 dynamic = ["version"]
 
 [project.optional-dependencies]
-unfold = ["django-unfold>=0.52.0"]
+unfold = [
+    "django-unfold>=0.52.0",
+]
+markdown = [
+    "markdown>=3.10.2",
+]
 
 [project.urls]
 Homepage = "https://github.com/metaforx/django-admin-announcements"
@@ -67,7 +73,7 @@ addopts = """\
     --strict-config
     --strict-markers
     --ds=testapp.settings
-    --ignore=tests/test_ui_notifications.py
+    --ignore=tests/test_ui_announcements.py
     """
 markers = [
     "ui: Playwright UI tests (require pytest-playwright and a browser)",
