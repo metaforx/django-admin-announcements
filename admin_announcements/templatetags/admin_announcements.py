@@ -1,8 +1,14 @@
-import markdown as markdown_lib
 from django import template
+from django.template.defaultfilters import linebreaksbr
 from django.utils.safestring import mark_safe
 
 from admin_announcements.models import AdminAnnouncement
+
+try:
+    import markdown as markdown_lib
+except ImportError:
+    markdown_lib = None
+
 
 register = template.Library()
 
@@ -19,4 +25,6 @@ def admin_announcements_banner(context):
 
 @register.filter(name="markdown")
 def markdown(value):
+    if markdown_lib is None:
+        return linebreaksbr(value or "")
     return mark_safe(markdown_lib.markdown(value or "", extensions=["extra"]))
