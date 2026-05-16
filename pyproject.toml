@@ -37,6 +37,7 @@ unfold = [
 ]
 markdown = [
     "markdown>=3.10.2",
+    "nh3>=0.2.18",
 ]
 
 [project.urls]

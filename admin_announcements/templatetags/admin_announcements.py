@@ -9,6 +9,11 @@ try:
 except ImportError:
     markdown_lib = None
 
+try:
+    import nh3
+except ImportError:
+    nh3 = None
+
 
 register = template.Library()
 
@@ -25,6 +30,9 @@ def admin_announcements_banner(context):
 
 @register.filter(name="markdown")
 def markdown(value):
-    if markdown_lib is None:
-        return linebreaksbr(value or "")
-    return mark_safe(markdown_lib.markdown(value or "", extensions=["extra"]))
+    if not value:
+        return ""
+    # Without a sanitizer we refuse to emit HTML — fall back to escaped text.
+    if markdown_lib is None or nh3 is None:
+        return linebreaksbr(value)
+    return mark_safe(nh3.clean(markdown_lib.markdown(value, extensions=["extra"])))
