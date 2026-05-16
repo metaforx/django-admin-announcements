@@ -2,7 +2,7 @@
 
 Admin announcements for Django, with optional [django-unfold](https://github.com/unfoldadmin/django-unfold) layout integration.
 
-> **Status:** Draft / early scaffold. Models are not stable.
+> **Status:** Draft / early scaffold. Models are not stable. No package released yet.
 
 ## Features (planned)
 
@@ -17,11 +17,29 @@ Admin announcements for Django, with optional [django-unfold](https://github.com
 - Django 5.0+
 - (Optional) django-unfold 0.52.0+ for the `contrib.unfold` integration
 
+## Markdown support
+- If installed with `markdown` support, announcements can contain markdown and will be rendered as HTML.
+- [nh3](https://github.com/messense/nh3) is used to sanitize HTML and prevent XSS.
+- [concrete.css](https://github.com/louismerlin/concrete.css) (3kb) is used for markdown styling.
+
 ## Installation
 
 ```bash
 pip install django-admin-announcements
 ```
+
+Install with markdown rendering support:
+
+```bash
+pip install "django-admin-announcements[markdown]"
+```
+
+Install with both markdown and Unfold support:
+
+```bash
+pip install "django-admin-announcements[markdown,unfold]"
+```
+
 
 Add to `INSTALLED_APPS`:
 
