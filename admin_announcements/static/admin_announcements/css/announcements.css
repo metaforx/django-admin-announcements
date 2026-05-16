@@ -26,7 +26,7 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4;
-    background-color: rgba(0,0,0,0.15);
+    background-color: rgba(0, 0, 0, 0.15);
     border-radius: 8px;
 }
 
@@ -58,7 +58,7 @@
     column-gap: 10px;
 }
 
-a.announcement__action,                                                                                                                                                                                       LSPs are disabled
+a.announcement__action,
 .button.announcement__action {
     height: 2.1875rem;
     line-height: 0.9375rem;
