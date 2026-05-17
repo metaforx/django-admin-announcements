@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% load admin_announcements i18n static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'admin_announcements/css/concrete.min.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <div class="announcement-detail">
+        <div class="markdown">
+            <h3>{{ announcement.summary }}</h3>
+            <div>{{ announcement.body|markdown }}</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

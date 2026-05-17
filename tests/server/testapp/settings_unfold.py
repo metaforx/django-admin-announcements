@@ -1,10 +1,10 @@
 from .settings import *  # noqa: F403
 
 INSTALLED_APPS = [
+    "admin_announcements.contrib.unfold",
     "unfold",
     "unfold.contrib.filters",
     "admin_announcements",
-    "admin_announcements.contrib.unfold",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

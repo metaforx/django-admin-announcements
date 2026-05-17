@@ -56,13 +56,16 @@ For Unfold integration, also add the contrib app:
 
 ```python
 INSTALLED_APPS = [
+    "admin_announcements.contrib.unfold",
     "unfold",
     "admin_announcements",
-    "admin_announcements.contrib.unfold",
     "django.contrib.admin",
     # ...
 ]
 ```
+
+Keep `admin_announcements.contrib.unfold` before `unfold` so its Unfold-aware
+admin template override is discovered first.
 
 Run migrations:
 
