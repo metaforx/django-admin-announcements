@@ -17,6 +17,7 @@
                 </div>
                 <div class="announcement__actions">
                     <a href="{% url 'admin_announcements:detail' announcement.pk %}"
+                       data-announcement-modal="{{ announcement.pk }}"
                        class="button default announcement__action ">{% translate "Read more" %}</a>
                     <button type="button" class="button default announcement__action announcement__dismiss "
                             data-announcement-dismiss aria-label="{% translate 'Close' %}">&times;

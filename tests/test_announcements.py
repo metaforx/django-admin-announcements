@@ -147,6 +147,11 @@ class TestBannerRendersInUnfoldAdmin:
         assert response.status_code == 200
         assert b"announcements-banner" in response.content
         assert b"Notify" in response.content
+        assert b"data-announcement-modal" in response.content
+        if getattr(settings, "ADMIN_ANNOUNCEMENTS_TESTS_UNFOLD_MODAL", False):
+            assert b"unfold_modal/js/modal_core.js" in response.content
+        else:
+            assert b"unfold_modal/js/modal_core.js" not in response.content
         banner_index = response.content.index(b'id="announcements-banner"')
         content_index = response.content.index(b'id="content"')
         header_index = response.content.index(b'id="header-inner"')
@@ -167,6 +172,18 @@ class TestBannerRendersInUnfoldAdmin:
         response = admin_client.get(f"/admin/announcements/detail/{announcement.pk}/")
         assert response.status_code == 200
         assert b'id="nav-sidebar"' in response.content
+
+    def test_popup_detail_hides_unfold_sidebar(self, admin_client):
+        self._skip_unless_unfold()
+        announcement = AdminAnnouncement.objects.create(
+            title="Notify", summary="Hello", body="Body"
+        )
+        response = admin_client.get(
+            f"/admin/announcements/detail/{announcement.pk}/?_popup=1"
+        )
+        assert response.status_code == 200
+        assert b'id="nav-sidebar"' not in response.content
+        assert response.headers["X-Frame-Options"] == "SAMEORIGIN"
 
     def test_banner_absent_without_announcement(self, admin_client):
         self._skip_unless_unfold()

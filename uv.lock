@@ -166,6 +166,9 @@ markdown = [
 unfold = [
     { name = "django-unfold" },
 ]
+unfold-modal = [
+    { name = "django-unfold-modal" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -184,10 +187,11 @@ ui = [
 requires-dist = [
     { name = "django", specifier = ">=5.0" },
     { name = "django-unfold", marker = "extra == 'unfold'", specifier = ">=0.52.0" },
+    { name = "django-unfold-modal", marker = "extra == 'unfold-modal'", specifier = ">=0.1.0" },
     { name = "markdown", marker = "extra == 'markdown'", specifier = ">=3.10.2" },
     { name = "nh3", marker = "extra == 'markdown'", specifier = ">=0.2.18" },
 ]
-provides-extras = ["markdown", "unfold"]
+provides-extras = ["markdown", "unfold", "unfold-modal"]
 
 [package.metadata.requires-dev]
 dev = [{ name = "ruff", specifier = ">=0.4" }]
@@ -208,6 +212,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/22/92/a83a74f4a810a3b592892b55b0babe1a96a7aef83bf72dbaac51cd8697d2/django_unfold-0.67.0.tar.gz", hash = "sha256:94a918a2108b62419f6b8dcaef8351af13e75111b7139125f36985fabe68547a", size = 1078405, upload-time = "2025-09-30T08:31:55.105Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/80/99/fdf2ddba83c090fb5840be6178d656efc8a03a52efaf5f04c82804fcea71/django_unfold-0.67.0-py3-none-any.whl", hash = "sha256:87939d7c2fbc8a39880d0af28c32f919515819e54bfbc3d845bb495852bf8da7", size = 1187388, upload-time = "2025-09-30T08:31:53.49Z" },
+]
+
+[[package]]
+name = "django-unfold-modal"
+version = "0.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "django-unfold" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e0/9a/8f806a6070ec4404a91278598fa7cd54885120b5c541f1ead1de470cb534/django_unfold_modal-0.1.0.tar.gz", hash = "sha256:c09d43da0d33470642525cd7e17f4ff936fc3f7656b075a113edf5443727ac56", size = 319968, upload-time = "2026-02-19T21:19:33.825Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/99/f1/968da93f400b6ef21e5784f7bb9090860ae9e9ad65f9e222a425410b433e/django_unfold_modal-0.1.0-py3-none-any.whl", hash = "sha256:af953e76dad190127e9b9ce0800673f1f9e2299d697f8f2cb1d90893afb18305", size = 18944, upload-time = "2026-02-19T21:19:35.2Z" },
 ]
 
 [[package]]

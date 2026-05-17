@@ -58,6 +58,7 @@ For Unfold integration, also add the contrib app:
 INSTALLED_APPS = [
     "admin_announcements.contrib.unfold",
     "unfold",
+    "unfold_modal",  # Optional: enables modal announcement detail links.
     "admin_announcements",
     "django.contrib.admin",
     # ...
@@ -66,6 +67,26 @@ INSTALLED_APPS = [
 
 Keep `admin_announcements.contrib.unfold` before `unfold` so its Unfold-aware
 admin template override is discovered first.
+
+To open announcement detail links in an Unfold modal, also install the
+`unfold-modal` extra and load `django-unfold-modal` assets in your Unfold
+settings:
+
+```bash
+uv sync --extra unfold --extra unfold-modal --group test --group dev
+```
+
+```python
+from unfold_modal.utils import get_modal_scripts, get_modal_styles
+
+UNFOLD = {
+    # ...
+    "STYLES": [*get_modal_styles()],
+    "SCRIPTS": [*get_modal_scripts()],
+}
+```
+
+Without `django-unfold-modal` scripts, the links fall back to normal detail pages.
 
 Run migrations:
 

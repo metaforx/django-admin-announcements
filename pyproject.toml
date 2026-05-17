@@ -35,6 +35,9 @@ dynamic = ["version"]
 unfold = [
     "django-unfold>=0.52.0",
 ]
+unfold-modal = [
+    "django-unfold-modal>=0.1.0",
+]
 markdown = [
     "markdown>=3.10.2",
     "nh3>=0.2.18",
