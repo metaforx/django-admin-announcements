@@ -10,7 +10,9 @@
 
 {% block content %}
     {% if not is_popup %}
-        {% admin_announcements_banner %}
+        <div class="unfold">
+            {% admin_announcements_banner %}
+        </div>
     {% endif %}
 
     <div class="flex flex-col lg:flex-row lg:gap-8">

@@ -81,3 +81,25 @@ a.announcement__action,
 .announcement__dismiss:hover {
     opacity: 0.5;
 }
+
+
+.unfold #announcements-banner {
+    padding: 15px 0;
+}
+
+.unfold .announcement {
+    background-color: var(--color-primary-600);
+    color: var(--color-white);
+}
+
+.unfold a.announcement__action,
+.unfold .button.announcement__action {
+    background-color: var(--color-white);
+    color: var(--color-primary-600);
+    text-transform: capitalize;
+}
+
+.unfold a.announcement__action:hover,
+.unfold .button.announcement__action:hover {
+    opacity: 0.9;
+}
