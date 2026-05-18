@@ -6,7 +6,7 @@ from django.utils import timezone
 class AdminAnnouncementQuerySet(models.QuerySet):
     def active(self):
         now = timezone.now()
-        return self.filter(is_active=True, starts_at__lte=now).filter(
+        return self.filter(is_published=True, starts_at__lte=now).filter(
             Q(expires_at__isnull=True) | Q(expires_at__gt=now)
         )
 
