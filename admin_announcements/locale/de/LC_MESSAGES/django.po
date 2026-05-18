@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-admin-announcements\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 04:05-0500\n"
+"POT-Creation-Date: 2026-05-18 15:23-0500\n"
 "PO-Revision-Date: 2026-05-15\n"
 "Last-Translator: Marc Widmer <marc@pbi.io>\n"
 "Language-Team: German <de@li.org>\n"
@@ -17,50 +17,72 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: \n"
 
-#: admin_announcements/models.py:10
+#: admin_announcements/admin.py:26
+msgid "Publication"
+msgstr "Veröffentlichung"
+
+#: admin_announcements/contrib/unfold/templates/admin/index.html:5
+msgid "Django site admin"
+msgstr ""
+
+#: admin_announcements/models.py:12
 msgid "version"
 msgstr "Version"
 
-#: admin_announcements/models.py:11
+#: admin_announcements/models.py:13
 msgid "Optional release version reference (e.g. 2.0.0)"
 msgstr "Optionale Referenz auf eine Release-Version (z. B. 2.0.0)"
 
-#: admin_announcements/models.py:13
+#: admin_announcements/models.py:15
 msgid "title"
 msgstr "Titel"
 
-#: admin_announcements/models.py:14
+#: admin_announcements/models.py:16
 msgid "summary"
 msgstr "Zusammenfassung"
 
-#: admin_announcements/models.py:15
+#: admin_announcements/models.py:17
 msgid "body"
 msgstr "Inhalt"
 
-#: admin_announcements/models.py:16
+#: admin_announcements/models.py:18
 msgid "starts at"
 msgstr "Beginnt am"
 
-#: admin_announcements/models.py:18
+#: admin_announcements/models.py:20
 msgid "expires at"
 msgstr "Endet am"
 
-#: admin_announcements/models.py:20
-msgid "active"
-msgstr "Aktiv"
+#: admin_announcements/models.py:22
+msgid "published"
+msgstr "publiziert"
 
-#: admin_announcements/models.py:26
+#: admin_announcements/models.py:28
 msgid "groups"
 msgstr "Gruppen"
 
-#: admin_announcements/models.py:27
+#: admin_announcements/models.py:29
 msgid "Restrict to users in these groups. Leave empty to show to all users."
-msgstr "Auf Benutzer in diesen Gruppen einschränken. Leer lassen, um allen anzuzeigen."
+msgstr ""
+"Auf Benutzer in diesen Gruppen einschränken. Leer lassen, um allen "
+"anzuzeigen."
 
-#: admin_announcements/models.py:31
+#: admin_announcements/models.py:35
 msgid "admin announcement"
 msgstr "Admin-Ankündigung"
 
-#: admin_announcements/models.py:32
+#: admin_announcements/models.py:36
 msgid "admin announcements"
 msgstr "Admin-Ankündigungen"
+
+#: admin_announcements/templates/admin_announcements/announcement_detail.html:13
+msgid "Home"
+msgstr "Start"
+
+#: admin_announcements/templates/admin_announcements/announcements_banner.html:21
+msgid "Read more"
+msgstr "Weiterlesen"
+
+#: admin_announcements/templates/admin_announcements/announcements_banner.html:23
+msgid "Close"
+msgstr "Schliessen"

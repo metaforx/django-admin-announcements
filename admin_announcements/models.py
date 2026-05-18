@@ -19,7 +19,7 @@ class AdminAnnouncement(models.Model):
     expires_at = models.DateTimeField(
         blank=True, null=True, verbose_name=_("expires at")
     )
-    is_active = models.BooleanField(default=True, verbose_name=_("active"))
+    is_published = models.BooleanField(default=True, verbose_name=_("published"))
 
     groups = models.ManyToManyField(
         "auth.Group",

@@ -2,6 +2,8 @@ from datetime import timedelta
 
 import pytest
 from django.conf import settings
+from django.contrib import admin
+from django.contrib.admin.widgets import FilteredSelectMultiple
 from django.contrib.auth.models import AnonymousUser, Group, User
 from django.template.loader import get_template
 from django.utils import timezone
@@ -11,6 +13,15 @@ from admin_announcements.models import AdminAnnouncement
 
 def assert_empty_result(result):
     assert list(result) == []
+
+
+class TestAdminAnnouncementAdmin:
+    def test_groups_uses_filtered_select_multiple(self):
+        model_admin = admin.site._registry[AdminAnnouncement]
+        groups_field = AdminAnnouncement._meta.get_field("groups")
+        formfield = model_admin.formfield_for_manytomany(groups_field, request=None)
+
+        assert isinstance(formfield.widget, FilteredSelectMultiple)
 
 
 @pytest.mark.django_db
@@ -28,10 +39,10 @@ class TestAdminAnnouncementQuerySet:
         result = AdminAnnouncement.objects.visible_to_user(user)
         assert len(result) == 1
 
-    def test_excludes_inactive(self):
+    def test_excludes_unpublished(self):
         user = User(username="u", is_staff=True)
         AdminAnnouncement.objects.create(
-            title="A", summary="S", body="B", is_active=False
+            title="A", summary="S", body="B", is_published=False
         )
         assert_empty_result(AdminAnnouncement.objects.visible_to_user(user))
 
