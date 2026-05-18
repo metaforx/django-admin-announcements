@@ -1,0 +1,14 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: uv run ruff check .
+        language: system
+        pass_filenames: false
+
+      - id: asset-lint
+        name: ESLint + Stylelint
+        entry: npm run lint:assets
+        language: system
+        pass_filenames: false

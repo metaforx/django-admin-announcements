@@ -100,6 +100,19 @@ Install dependencies:
 
 ```bash
 uv sync --group test --group dev
+npm ci
+```
+
+Install pre-commit hooks:
+
+```bash
+uv run pre-commit install
+```
+
+Run all pre-commit hooks manually:
+
+```bash
+uv run pre-commit run --all-files
 ```
 
 Run the stock Django test server:
