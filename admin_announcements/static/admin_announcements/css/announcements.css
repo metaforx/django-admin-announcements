@@ -63,7 +63,7 @@ a.announcement__action,
     height: 2.1875rem;
     line-height: 0.9375rem;
     vertical-align: middle;
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-primary), sans-serif;
     font-weight: normal;
     font-size: 0.8125rem;
     padding: 10px 15px;
@@ -74,10 +74,46 @@ a.announcement__action,
     text-transform: uppercase;
 }
 
-.button.announcement__dismiss {
-    background: var(--button-bg);
+.button.announcement__action--dismiss {
+    background: transparent;
+    color: var(--body-fg);
+    padding: 0 10px;
 }
 
-.announcement__dismiss:hover {
+.announcement__action--dismiss:hover {
     opacity: 0.5;
+    background: transparent;
+}
+
+.announcement__dismiss-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.unfold #announcements-banner {
+    padding: 15px 0;
+}
+
+.unfold .announcement {
+    background-color: oklch(from var(--color-primary-600) l c h / 0.1);
+    color: var(--color-primary-600);
+    border: 1px dashed var(--color-primary-600);
+}
+
+.unfold a.announcement__action,
+.unfold .button.announcement__action {
+    background-color: var(--color-primary-600);
+    color: var(--color-white);
+    text-transform: capitalize;
+}
+
+.unfold .button.announcement__action--dismiss {
+    background: transparent;
+    color: var(--color-primary-600);
+    padding: 0 10px;
+}
+
+.unfold a.announcement__action:hover,
+.unfold .button.announcement__action:hover {
+    opacity: 0.9;
 }

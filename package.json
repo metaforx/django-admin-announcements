@@ -1,0 +1,16 @@
+{
+  "name": "django-admin-announcements",
+  "description": "Admin announcements for Django static asset tooling",
+  "private": true,
+  "scripts": {
+    "lint:css": "stylelint \"admin_announcements/static/admin_announcements/css/**/*.css\"",
+    "lint:js": "eslint admin_announcements/static/admin_announcements/js/**/*.js",
+    "lint:assets": "npm run lint:js && npm run lint:css"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1"
+  }
+}

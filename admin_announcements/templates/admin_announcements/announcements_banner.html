@@ -17,9 +17,13 @@
                 </div>
                 <div class="announcement__actions">
                     <a href="{% url 'admin_announcements:detail' announcement.pk %}"
-                       class="button default announcement__action ">{% translate "Read more" %}</a>
-                    <button type="button" class="button default announcement__action announcement__dismiss "
-                            data-announcement-dismiss aria-label="{% translate 'Close' %}">&times;
+                       data-announcement-modal="{{ announcement.pk }}"
+                       class="button default announcement__action announcement__action--view">{% translate "Read more" %}</a>
+                    <button type="button" class="button default announcement__action announcement__action--dismiss"
+                            data-announcement-dismiss aria-label="{% translate 'Close' %}">
+                        <svg class="announcement__dismiss-icon" aria-hidden="true">
+                            <use href="{% static 'admin_announcements/img/icons.svg' %}#icon-announcement-close"></use>
+                        </svg>
                     </button>
                 </div>
             </div>
