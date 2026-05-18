@@ -6,7 +6,7 @@ Admin announcements for Django, with optional [django-unfold](https://github.com
 
 ## Features
 
-- Displays a list of active announcements above Django admin header as `banner`.
+- Displays a list of active announcements above the Django admin header as a banner.
 - Allows admins to create announcements in the standard Django admin for editors (`is_staff`)
 - Announcements can be assigned to groups and are time- and date-sensitive
 - Allows editors to dismiss active announcements (stored in local storage)
