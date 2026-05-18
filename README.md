@@ -10,7 +10,7 @@ Admin announcements for Django, with optional [django-unfold](https://github.com
 - Allows admins to create announcements in the standard Django admin for editors (`is_staff`)
 - Announcements can be assigned to groups and are time- and date-sensitive
 - Allows editors to dismiss active announcements (stored in local storage)
-- Support optional markdown content if installed with `markdown` support (only for rendered HTML, no special fields)
+- Supports optional markdown content if installed with `markdown` support (only for rendered HTML, no special fields)
 - Supports [django-unfold](https://github.com/unfoldadmin/django-unfold) using an optional `contrib.unfold` app
 - Supports [django-unfold-modal](https://github.com/metaforx/django-unfold-modal) to display announcements in a modal instead of a full page
 - Customize implementation via template tag `admin_announcements_banner`
