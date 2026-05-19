@@ -52,10 +52,10 @@
     }
 
     function _getDismissedAnnouncements() {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (!stored) return {};
-
         try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (!stored) return {};
+
             const data = JSON.parse(stored);
             const dismissed = data ? data[DISMISSED_PROPERTY] : null;
             if (!dismissed || Array.isArray(dismissed) || typeof dismissed !== 'object') {
@@ -68,9 +68,13 @@
     }
 
     function _setDismissedAnnouncements(dismissed) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({
-            [DISMISSED_PROPERTY]: dismissed,
-        }));
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                [DISMISSED_PROPERTY]: dismissed,
+            }));
+        } catch {
+            return;
+        }
     }
 
     document.addEventListener('DOMContentLoaded', function() {
