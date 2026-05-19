@@ -50,10 +50,10 @@ Install with Markdown rendering support:
 pip install "django-admin-announcements[markdown]"
 ```
 
-Install with both Markdown and Unfold support:
+Install with Markdown, Unfold, and Unfold Modal support:
 
 ```bash
-pip install "django-admin-announcements[markdown,unfold]"
+pip install "django-admin-announcements[markdown,unfold,unfold-modal]"
 ```
 
 
@@ -103,6 +103,71 @@ UNFOLD = {
 ```
 
 Without `django-unfold-modal` scripts, the links fall back to normal detail pages.
+
+## Custom template integration
+
+If your project already overrides the default Django admin or Unfold templates, add
+the announcement assets and template tag to your custom template.
+
+For the stock Django admin, extend your custom `admin/base_site.html` like this:
+
+```html
+{% extends "admin/base_site.html" %}
+{% load admin_announcements static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'admin_announcements/css/announcements.css' %}">
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<script src="{% static 'admin_announcements/js/announcements.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+{% admin_announcements_banner %}
+{{ block.super }}
+{% endblock %}
+```
+
+For Unfold, load the assets through `UNFOLD` settings instead of template
+blocks. If you are not using `django-unfold-modal`, omit the modal imports and
+the `*get_modal_*()` entries.
+
+```python
+from django.templatetags.static import static
+from unfold_modal.utils import get_modal_scripts, get_modal_styles
+
+UNFOLD = {
+    # ...
+    "STYLES": [
+        lambda request: static("admin_announcements/css/announcements.css"),
+        *get_modal_styles(),
+    ],
+    "SCRIPTS": [
+        lambda request: static("admin_announcements/js/announcements.js"),
+        *get_modal_scripts(),
+    ],
+}
+```
+
+Then render the banner inside a `.unfold` container so it inherits Unfold layout
+spacing and color variables:
+
+```html
+{% extends "admin/base.html" %}
+{% load admin_announcements %}
+
+{% block content %}
+{% if not is_popup %}
+    <div class="unfold">
+        {% admin_announcements_banner %}
+    </div>
+{% endif %}
+{{ block.super }}
+{% endblock %}
+```
 
 Run migrations:
 
