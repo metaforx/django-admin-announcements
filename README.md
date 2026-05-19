@@ -3,7 +3,7 @@
 
 Admin announcements for Django, with optional [django-unfold](https://github.com/unfoldadmin/django-unfold) layout integration.
 
-> **Status:** Testing. Alpha Release.
+> **Status:** Testing. Beta Release.
 
 ## Features
 
