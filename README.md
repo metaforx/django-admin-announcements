@@ -1,8 +1,9 @@
 # django-admin-announcements
+[![PyPI - Version](https://img.shields.io/pypi/v/django-admin-announcements.svg?style=for-the-badge)](https://pypi.org/project/django-admin-announcements/) [![Build](https://img.shields.io/github/actions/workflow/status/metaforx/django-admin-announcements/ci.yml?style=for-the-badge&event=pull_request)](https://github.com/metaforx/django-admin-announcements/actions/workflows/ci.yml)
 
 Admin announcements for Django, with optional [django-unfold](https://github.com/unfoldadmin/django-unfold) layout integration.
 
-> **Status:** Testing. No package released yet.
+> **Status:** Testing. Alpha Release.
 
 ## Features
 
@@ -10,10 +11,11 @@ Admin announcements for Django, with optional [django-unfold](https://github.com
 - Allows admins to create announcements in the standard Django admin for editors (`is_staff`)
 - Announcements can be assigned to groups and are time- and date-sensitive
 - Allows editors to dismiss active announcements (stored in local storage)
-- Supports optional markdown content if installed with `markdown` support (only for rendered HTML, no special fields)
+- Supports optional Markdown content if installed with `markdown` support (only for rendered HTML, no special fields)
 - Supports [django-unfold](https://github.com/unfoldadmin/django-unfold) using an optional `contrib.unfold` app
 - Supports [django-unfold-modal](https://github.com/metaforx/django-unfold-modal) to display announcements in a modal instead of a full page
 - Customize implementation via template tag `admin_announcements_banner`
+- Supports installed admin themes, custom colors, and dark mode.
 
 ## Requirements
 
@@ -22,9 +24,19 @@ Admin announcements for Django, with optional [django-unfold](https://github.com
 - (Optional) django-unfold 0.52.0+ for the `contrib.unfold` integration
 
 ## Markdown support
-- If installed with `markdown` support, announcements can contain markdown and will be rendered as HTML.
+- If installed with `markdown` support, announcements can contain Markdown and will be rendered as HTML.
 - [nh3](https://github.com/messense/nh3) is used to sanitize HTML and prevent XSS.
-- [concrete.css](https://github.com/louismerlin/concrete.css) (3kb) is used for markdown styling.
+- [concrete.css](https://github.com/louismerlin/concrete.css) (3kb) is used for Markdown styling.
+
+## Screenshots
+
+| Django admin                                                                   | Django admin detail                                                           |
+|--------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| ![Django admin announcements banner](docs/images/django-admin-announcements-dj-0.png) | ![Django admin announcement detail](docs/images/django-admin-announcements-dj-1.png) |
+
+| Unfold admin                                                                       | Unfold admin detail                                                               |
+|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| ![Unfold admin announcements banner](docs/images/django-admin-announcements-unfold-0.png) | ![Unfold admin announcement detail](docs/images/django-admin-announcements-unfold-1.png) |
 
 ## Installation
 
@@ -32,13 +44,13 @@ Admin announcements for Django, with optional [django-unfold](https://github.com
 pip install django-admin-announcements
 ```
 
-Install with markdown rendering support:
+Install with Markdown rendering support:
 
 ```bash
 pip install "django-admin-announcements[markdown]"
 ```
 
-Install with both markdown and Unfold support:
+Install with both Markdown and Unfold support:
 
 ```bash
 pip install "django-admin-announcements[markdown,unfold]"
